@@ -1,1 +1,1 @@
-web: manage.py runserver 0.0.0.0:$PORT
+web: gunicorn cassandre/wsgi.py -b 0.0.0.0:$PORT
