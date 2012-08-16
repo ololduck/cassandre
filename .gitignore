@@ -4,3 +4,6 @@
 # virtualenv
 venv
 
+# python stuff
+*.pyc
+*.pyo
