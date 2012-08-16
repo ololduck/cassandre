@@ -1,5 +1,7 @@
 # Django settings for cassandre project.
 
+import os, sys
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -27,11 +29,11 @@ DATABASES = {
 # timezone as the operating system.
 # If running in a Windows environment this must be set to the same as your
 # system time zone.
-TIME_ZONE = 'America/Chicago'
+TIME_ZONE = 'Europe/Paris'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'fr-fr'
 
 SITE_ID = 1
 
@@ -48,7 +50,7 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = ''
+MEDIA_ROOT = sys.path.getcwd()
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
