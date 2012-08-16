@@ -11,23 +11,4 @@ class Micropost(models.Model):
     date = models.DateField()
 
     def __unicode__(self):
-        pass
-
-class User(models.Model):
-    # TODO: Define fields here
-
-    class Meta:
-        verbose_name = _('User')
-        verbose_name_plural = _('Users')
-
-    def __unicode__(self):
-        pass
-
-    def save(self):
-        pass
-
-    @models.permalink
-    def get_absolute_url(self):
-        return ('')
-
-    # TODO: Defne custom methods here
+        return self.content

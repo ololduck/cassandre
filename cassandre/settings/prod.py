@@ -1,5 +1,7 @@
 # Django settings for cassandre project.
 
+import os
+
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
@@ -81,7 +83,7 @@ STATICFILES_FINDERS = (
 )
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = ""
+SECRET_KEY = os.environ["SECRET_KEY"]
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
