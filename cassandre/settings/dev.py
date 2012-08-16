@@ -1,6 +1,6 @@
 # Django settings for cassandre project.
 
-import os, sys
+import sys
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -50,7 +50,7 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = sys.path.getcwd()
+MEDIA_ROOT = ''
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
