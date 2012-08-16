@@ -1,0 +1,6 @@
+# SublimeText 2
+*.sublime-workspace
+
+# virtualenv
+venv
+
