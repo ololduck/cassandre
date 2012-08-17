@@ -1,12 +1,18 @@
 from django.conf.urls import patterns, include, url
+from tastypie.api import Api
+from cassandre.cassandre.api import UserResource
 
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
 # admin.autodiscover()
 
+api = Api()
+api.register(UserResource())
+
 urlpatterns = patterns('',
     # Examples:
     url(r'^$', 'cassandre.cassandre.views.home'),
+    url(r'^api/', include(api.urls)),
     # url(r'^cassandre/', include('cassandre.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
