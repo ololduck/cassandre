@@ -7,3 +7,6 @@ venv
 # python stuff
 *.pyc
 *.pyo
+
+# databases
+db
