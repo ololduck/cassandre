@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, include, url
 from tastypie.api import Api
-from cassandre.cassandre.api import UserResource
+from cassandre.cassandre.api import UserResource, PostResource
 
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
@@ -8,6 +8,7 @@ from cassandre.cassandre.api import UserResource
 
 api = Api()
 api.register(UserResource())
+api.register(PostResource())
 
 urlpatterns = patterns('',
     # Examples:
