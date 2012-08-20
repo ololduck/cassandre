@@ -1,6 +1,6 @@
 from tastypie import fields
 from tastypie.resources import ModelResource, ALL_WITH_RELATIONS
-from cassandre.cassandre.models import Micropost, User
+from cassandre.core.models import Micropost, User
 
 
 class UserResource(ModelResource):
