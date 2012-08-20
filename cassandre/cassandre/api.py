@@ -1,11 +1,19 @@
-from tastypie.resources import ModelResource
+from tastypie import fields
+from tastypie.resources import ModelResource, ALL_WITH_RELATIONS
 from cassandre.cassandre.models import Micropost, User
 
 
 class UserResource(ModelResource):
-	class Meta:
-		queryset = User.objects.all()
+    class Meta:
+        queryset = User.objects.all()
+        exclude = ['pw_hash']
+
 
 class PostResource(ModelResource):
-	class Meta:
-		queryset = Micropost.objects.all()
+    author = fields.ForeignKey(UserResource, 'author')
+
+    class Meta:
+        queryset = Micropost.objects.all()
+        filtering = {
+            'user': ALL_WITH_RELATIONS
+        }

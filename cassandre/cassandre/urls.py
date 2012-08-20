@@ -6,7 +6,7 @@ from cassandre.cassandre.api import UserResource, PostResource
 # from django.contrib import admin
 # admin.autodiscover()
 
-api = Api()
+api = Api('v1')
 api.register(UserResource())
 api.register(PostResource())
 
