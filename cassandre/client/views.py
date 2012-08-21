@@ -1,6 +1,6 @@
 from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect
-from django.contrib.auth import authenticate
+from django.contrib.auth import authenticate, login
 
 
 def home(request):
@@ -19,7 +19,7 @@ def home(request):
         return render_to_response('login.html', c)
 
 
-def login(request):
+def loginView(request):
     if request.user.is_authenticated():
         print("User already auth")
         return HttpResponseRedirect('/')
@@ -28,6 +28,7 @@ def login(request):
         user = authenticate(username=request.POST['login'], password=request.POST['password'])
         if user is not None:
             print("Hello, user, welcome back!")
+            login(request, user)
             return HttpResponseRedirect('/')
         else:
             return HttpResponseRedirect('/')
