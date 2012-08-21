@@ -1,11 +1,33 @@
 from django.shortcuts import render_to_response
+from django.http import HttpResponseRedirect
+from django.contrib.auth import authenticate
 
 
 def home(request):
-    if(request.user.is_authenticated()):
+    print(request.user.is_authenticated())
+    if request.user.is_authenticated():
+        print("is auth")
         u = request.user
         return render_to_response('home.html', {
             'posts': u.microposts.all()
             })
     else:
-        return render_to_response('login.html')
+        print("Not authenticated")
+        from django.core.context_processors import csrf
+        c = {}
+        c.update(csrf(request))
+        return render_to_response('login.html', c)
+
+
+def login(request):
+    if request.user.is_authenticated():
+        print("User already auth")
+        return HttpResponseRedirect('/')
+    else:
+        print("user not auth")
+        user = authenticate(username=request.POST['login'], password=request.POST['password'])
+        if user is not None:
+            print("Hello, user, welcome back!")
+            return HttpResponseRedirect('/')
+        else:
+            return HttpResponseRedirect('/')

@@ -1,14 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
-      <!-- Main hero unit for a primary marketing message or call to action -->
       <div class="hero-unit">
         <h1>Hello, world!</h1>
         <p>Before continuing, you have to log in, or register an account.</p>
         <p>
-          <form method="post" action="/user/login/">
-            <input type="text" placeholder="Login" /><br />
-            <input type="password" placeholder="Password"><br />
+          <form method="post" action="/user/login/">{% csrf_token %}
+            <input name="login" type="text" placeholder="Login" /><br />
+            <input name="password" type="password" placeholder="Password"><br />
             <button type="submit" class="btn btn-primary">Login</button> <a class="btn">Register</a>
           </form>
         </p>
