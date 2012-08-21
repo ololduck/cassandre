@@ -7,7 +7,7 @@ def home(request):
     if request.user.is_authenticated():
         u = request.user
         return render_to_response('home.html', {
-            'posts': u.microposts.all()
+            'posts': u.micropost_set.all()
             })
     else:
         from django.core.context_processors import csrf
@@ -20,7 +20,6 @@ def loginView(request):
     if request.user.is_authenticated():
         return HttpResponseRedirect('/')
     else:
-        print("user not auth")
         user = authenticate(username=request.POST['login'], password=request.POST['password'])
         if user is not None:
             login(request, user)
