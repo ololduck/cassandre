@@ -1,12 +1,5 @@
 from django.db import models
-
-
-class User(models.Model):
-    pseudo = models.CharField(max_length=32)
-    pw_hash = models.CharField(max_length=32)
-
-    def __unicode__(self):
-        return self.pseudo
+from django.contrib.auth.models import User
 
 
 class Micropost(models.Model):
